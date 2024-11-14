@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ótica Dvisium - Área de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        header p {
+            margin: 5px 0 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .products {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            width: 30%;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #fff;
+            transition: transform 0.2s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+            max-width: 200px;
+        }
+
+        .product h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .product p {
+            color: #555;
+        }
+
+        .product button {
+            background-color: #009688;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background-color: #00796b;
+        }
+
+        #carrinho {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        #carrinho h3 {
+            margin-top: 0;
+        }
+
+        #carrinho ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        #carrinho ul li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #carrinho ul li button {
+            background-color: #e53935;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #carrinho .total {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        #esvaziar-carrinho {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .back-button {
+            background-color: #eeeeee;
+            border: 1px solid #ccc;
+            color: #333;
+            padding: 5px 15px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        #esvaziar-carrinho:hover {
+            background-color: #f57c00;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ótica Dvisium</h1>
+    <p>Cuide da sua visão com qualidade e confiança</p>
+</header>
+
+<div class="container">
+    <section id="produtos">
+        <h2>Produtos em Destaque</h2>
+        <div class="products">
+            <!-- Produto 1: Óculos de Sol -->
+            <div class="product" data-id="1" data-nome="Óculos de Sol" data-preco="150">
+                <img src="imagens/oculos-sol.jpg" alt="Óculos de Sol">
+                <h3>Óculos de Sol</h3>
+                <p>Estilos modernos para proteção e conforto.</p>
+                <button onclick="adicionarCarrinho(this)">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto 2: Óculos de Grau -->
+            <div class="product" data-id="2" data-nome="Óculos de Grau" data-preco="200">
+                <img src="imagens/oculos-grau.jpg" alt="Óculos de Grau">
+                <h3>Óculos de Grau</h3>
+                <p>Melhore sua visão com nossas lentes de alta qualidade.</p>
+                <button onclick="adicionarCarrinho(this)">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto 3: Lentes de Contato -->
+            <div class="product" data-id="3" data-nome="Lentes de Contato" data-preco="80">
+                <img src="imagens/lentes-contato.jpg" alt="Lentes de Contato">
+                <h3>Lentes de Contato</h3>
+                <p>Conforto diário e praticidade para sua rotina.</p>
+                <button onclick="adicionarCarrinho(this)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="carrinho">
+        <h3>Seu Carrinho</h3>
+        <ul id="lista-carrinho">
+            <!-- Itens do carrinho serão exibidos aqui -->
+        </ul>
+        <p class="total">Total: R$ 0,00</p>
+        <button id="esvaziar-carrinho" onclick="esvaziarCarrinho()">Esvaziar Carrinho</button>
+        <a href="index.html" class="back-button">Voltar para a Página Inicial</a>
+    </section>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Ótica Dvisium | Todos os direitos reservados.</p>
+</footer>
+
+<script>
+// Carrinho de compras
+let carrinho = [];
+
+function adicionarCarrinho(button) {
+    const productElement = button.parentElement;
+    const id = productElement.getAttribute('data-id');
+    const nome = productElement.getAttribute('data-nome');
+    const preco = parseFloat(productElement.getAttribute('data-preco'));
+
+    // Verifica se o produto já está no carrinho
+    const produtoExistente = carrinho.find(produto => produto.id === id);
+
+    if (produtoExistente) {
+        produtoExistente.quantidade += 1;
+    } else {
+        carrinho.push({
+            id,
+            nome,
+            preco,
+            quantidade: 1
+        });
+    }
+
+    atualizarCarrinho();
+}
+
+// Atualiza a lista do carrinho e o total
+function atualizarCarrinho() {
+    const listaCarrinho = document.getElementById('lista-carrinho');
+    const totalElement = document.querySelector('.total');
+
+    listaCarrinho.innerHTML = ''; // Limpa a lista atual
+
+    let total = 0;
+
+    carrinho.forEach(produto => {
+        const itemCarrinho = document.createElement('li');
+        itemCarrinho.innerHTML = `${produto.quantidade}x ${produto.nome} - R$ ${produto.preco.toFixed(2)} 
+        <button onclick="removerProduto(${produto.id})">Remover</button>`;
+        listaCarrinho.appendChild(itemCarrinho);
+
+        total += produto.preco * produto.quantidade;
+    });
+
+    totalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+}
+
+// Função para remover produto do carrinho
+function removerProduto(id) {
+    const produtoIndex = carrinho.findIndex(produto => produto.id === id);
+    
+    if (produtoIndex !== -1) {
+        carrinho[produtoIndex].quantidade -= 1;
+        
+        if (carrinho[produtoIndex].quantidade === 0) {
+            carrinho.splice(produtoIndex, 1); // Remove o produto do carrinho
+        }
+    }
+
+    atualizarCarrinho();
+}
+
+// Função para esvaziar o carrinho
+function esvaziarCarrinho() {
+    carrinho = []; // Limpa o carrinho
+    atualizarCarrinho(); // Atualiza a exibição
+}
+</script>
+
+</body>
+</html>

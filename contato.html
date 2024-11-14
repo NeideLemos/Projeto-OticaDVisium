@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Ótica Dvisium</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #009688;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        header p {
+            margin: 5px 0 20px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #009688;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #009688;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+
+        /* Estilos do botão "Voltar" */
+        .back-button {
+            background-color: #eeeeee;
+            border: 1px solid #ccc;
+            color: #333;
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #ddd;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #009688;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ótica Dvisium</h1>
+    <p>Cuide da sua visão com qualidade e confiança</p>
+</header>
+
+<div class="container">
+    <section id="contato">
+        <h2>Fale Conosco</h2>
+        <p>Tem alguma dúvida ou sugestão? Preencha o formulário abaixo e entraremos em contato com você o mais breve possível.</p>
+
+        <form action="enviar-contato.php" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+
+        <!-- Botão de retorno à página inicial -->
+        <a href="index.html" class="back-button">Voltar para a Página Inicial</a>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Ótica Dvisium | Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
+
